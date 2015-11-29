@@ -3,18 +3,16 @@
 import wx
 import os
 
-TRAY_TOOLTIP = 'Meido Project'
-
 class TaskBarIcon(wx.TaskBarIcon):
-    def __init__(self, icon = None):
+    def __init__(self, conf, icon = None):
         super(TaskBarIcon, self).__init__()
         if(icon != None):
             if(os.path.isfile(icon)):
-                self.SetIcon(wx.IconFromBitmap(wx.Bitmap(icon)), TRAY_TOOLTIP)
+                self.SetIcon(wx.IconFromBitmap(wx.Bitmap(icon)), conf['name'])
             else:
-                self.SetIcon(wx.EmptyIcon(), TRAY_TOOLTIP)
+                self.SetIcon(wx.EmptyIcon(), conf['name'])
         else:
-            self.SetIcon(wx.EmptyIcon(), TRAY_TOOLTIP)
+            self.SetIcon(wx.EmptyIcon(), conf['name'])
 
     def CreatePopupMenu(self):
         menu = wx.Menu()

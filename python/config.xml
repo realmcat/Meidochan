@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+<name>伊欧娜</name>
+<messages>
+	<message>
+		<conditions>
+			<condition type="startup" />
+		</conditions>
+		<contents>
+			<content>嗨，我是{NAME}。你好~</content>
+			<content>嗨，我是{NAME}。今天过得还好嘛~</content>
+		</contents>
+	</message>
+</messages>
+</config>

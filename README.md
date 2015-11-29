@@ -5,6 +5,7 @@
 A simple AI project.
 
 ## Updates
+* 20151129: Added *startup* event and test data (Chinese).
 * 20151128: Created main module and taskicon module.
 * 20151127: Created repo.
 
