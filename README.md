@@ -1,3 +1,5 @@
+([Chinese version](README_zh_cn.md) of this README can be found here.)
+
 # Meidochan
 
 A simple AI project.
@@ -21,4 +23,4 @@ About her name (her?), which one is OK...
 * Fubuki (KanColle?)
 * Iona (...)
 
-(~~Iona is the best!~~)
+(~~Iona is the best! prpr~~)
