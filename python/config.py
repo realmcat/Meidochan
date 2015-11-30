@@ -3,6 +3,8 @@
 import xml.etree.ElementTree as et
 import random
 
+BALLOON_TIME = 3000
+
 class configFile:
     def __init__(self, filename):
         self.f = filename

@@ -3,7 +3,6 @@
 import wx
 import os
 import config
-import random
 
 class TaskBarIcon(wx.TaskBarIcon):
     def __init__(self, cf, icon = None):
@@ -19,7 +18,7 @@ class TaskBarIcon(wx.TaskBarIcon):
         
         msg = self.__config__.findCondition('startup')[0]
         if msg != []:
-            self.ShowBalloon(self.__config__.result['name'], self.__config__.chooseMessage(msg), 3000, wx.ICON_INFORMATION)
+            self.ShowBalloon(self.__config__.result['name'], self.__config__.chooseMessage(msg), config.BALLOON_TIME, wx.ICON_INFORMATION)
 
     def CreatePopupMenu(self):
         menu = wx.Menu()
@@ -31,5 +30,5 @@ class TaskBarIcon(wx.TaskBarIcon):
     def on_exit(self, event):
         msg = self.__config__.findCondition('end')[0]
         if msg != []:
-            self.ShowBalloon(self.__config__.result['name'], self.__config__.chooseMessage(msg), 3000, wx.ICON_INFORMATION)
+            self.ShowBalloon(self.__config__.result['name'], self.__config__.chooseMessage(msg), config.BALLOON_TIME, wx.ICON_INFORMATION)
         wx.CallAfter(self.Destroy)
