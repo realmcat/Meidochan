@@ -1,11 +1,13 @@
 #!/usr/bin/python
 
 import xml.etree.ElementTree as et
+import random
 
 class configFile:
     def __init__(self, filename):
         self.f = filename
         self.error = False
+        self.result = None
         
     def parse(self):
         self.error = False
@@ -13,6 +15,7 @@ class configFile:
         root = et.parse(self.f).getroot()
         result['name'] = self.__parse_name__(root.find('name'))
         result['messages'] = self.__parse_messages__(root.find('messages'))
+        self.result = result
         return result
         
     def __parse_name__(self, name_element):
@@ -57,11 +60,27 @@ class configFile:
         for cont in contents_element:
             result.append(cont.text)
         return result
+        
+    def findCondition(self, condition_name):
+        if self.result == None:
+            self.parse()
+        result = []
+        for msg in self.result['messages']:
+            for cond in msg['conditions']:
+                if cond.type == condition_name:
+                    result.append(msg)
+        return result
+        
+    def chooseMessage(self, message):
+        if self.result == None:
+            self.parse()
+        return random.choice(message['contents']).replace('{NAME}', self.result['name'])
             
 class condition:
     def __init__(self, condition_element):
         condition_switcher = {
-            'startup': self.__cond_startup__
+            'startup': self.__cond_startup__,
+            'end': self.__cond_end__,
         }
     
         if(condition_element == None):
@@ -69,7 +88,10 @@ class condition:
         condition_switcher.get(condition_element.get('type'), self.__cond_default__)(condition_element)
         
     def __cond_default__(self, condition_element):
-        return None
+        self.type = None
         
     def __cond_startup__(self, condition_element):
         self.type = 'startup'
+        
+    def __cond_end__(self, condition_element):
+        self.type = 'end'

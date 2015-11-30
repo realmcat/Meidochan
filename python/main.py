@@ -3,7 +3,6 @@
 import wx
 import os
 import sys
-import random
 
 sys.path.append(os.getcwd())
 
@@ -14,23 +13,13 @@ import config
 
 def main():
     cf = config.configFile(r'.\config.xml')
-    conf = cf.parse()
+    cf.parse()
     app = wx.App()
     if cf.error:
-        print conf
         wx.MessageDialog(None, 'An error occurred when parsing the XML file.', 'Meidochan');
         return
 
-    tray = taskicon.TaskBarIcon(conf)
-    
-    for msg in conf['messages']:
-        found = False
-        for cond in msg['conditions']:
-            if cond.type == 'startup':
-                found = True
-                break
-        if found:
-            tray.ShowBalloon(conf['name'], random.choice(msg['contents']).replace('{NAME}', conf['name']), 3000, wx.ICON_INFORMATION)
+    tray = taskicon.TaskBarIcon(cf)
     app.MainLoop()
     
 if __name__ == '__main__':

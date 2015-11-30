@@ -11,5 +11,14 @@
 			<content>嗨，我是{NAME}。今天过得还好嘛~</content>
 		</contents>
 	</message>
+	<message>
+		<conditions>
+			<condition type="end" />
+		</conditions>
+		<contents>
+			<content>再见咯~</content>
+			<content>祝你有愉快的一天！</content>
+		</contents>
+	</message>
 </messages>
 </config>
