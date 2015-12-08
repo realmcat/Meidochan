@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
-<name>伊欧娜</name>
+<name>YUI</name>
+<datetime>%Y/%m/%d %H:%M:%S</datetime>
 <messages>
 	<message>
 		<conditions>
@@ -18,6 +19,14 @@
 		<contents>
 			<content>再见咯~</content>
 			<content>祝你有愉快的一天！</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" time="2015/12/08 18:51:40" />
+		</conditions>
+		<contents>
+			<content>就是现在</content>
 		</contents>
 	</message>
 </messages>
