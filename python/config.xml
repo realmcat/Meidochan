@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
 <name>YUI</name>
-<datetime>%Y/%m/%d %H:%M:%S</datetime>
 <messages>
 	<message>
 		<conditions>
@@ -10,6 +9,8 @@
 		<contents>
 			<content>嗨，我是{NAME}。你好~</content>
 			<content>嗨，我是{NAME}。今天过得还好嘛~</content>
+			<content>好久不见，我是{NAME}~</content>
+			<content>{NAME}不在的时候，主人在做什么呢？</content>
 		</contents>
 	</message>
 	<message>
@@ -23,10 +24,194 @@
 	</message>
 	<message>
 		<conditions>
-			<condition type="time" time="2015/12/08 18:51:40" />
+			<condition type="time" hour="0" minute="0" second="0" />
 		</conditions>
 		<contents>
-			<content>就是现在</content>
+			<content>凌晨零点。再不睡觉对身体不好哦</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="1" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>凌晨一点。快去睡觉吧</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="2" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>凌晨两点。啊，好困……</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="3" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>凌晨三点。睡觉啦……晚安</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="4" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>凌晨四点。Zzz...</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="5" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>凌晨五点。唔……有什么事嘛……</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="6" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>早上六点。再睡一会……</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="7" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>早上七点。嗯……天快亮了吗</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="8" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>早上八点。新的一天开始了</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="9" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>上午九点。起晚了是要迟到的哦</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="10" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>上午十点。好啦~专心听课</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="11" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>上午十一点。唔，中午吃什么好呢</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="12" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>中午十二点。开饭啦开饭啦~</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="13" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>下午一点。睡个午觉好了，嗯……</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="14" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>下午两点。有什么安排吗？</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="15" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>下午三点。看看书怎么样</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="16" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>下午四点。好像快下课了诶</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="17" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>下午五点。下课了~回家~</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="18" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>晚上六点。今天都做了些什么呢</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="19" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>晚上七点。先把手里的工作做完吧</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="20" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>晚上八点。有什么好玩的事情嘛，说来听听~</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="21" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>晚上九点。偶尔也要看看外面的夜景哦</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="22" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>晚上十点。休息一下吧</content>
+		</contents>
+	</message>
+	<message>
+		<conditions>
+			<condition type="time" hour="23" minute="0" second="0" />
+		</conditions>
+		<contents>
+			<content>晚上十一点。差不多快到睡觉的时间了吧~</content>
 		</contents>
 	</message>
 </messages>

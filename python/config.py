@@ -5,7 +5,6 @@ import random
 from datetime import datetime
 
 BALLOON_TIME = 3000
-DEFAULT_DATETIME = '%Y/%m/%d %H:%M:%S'
 
 class configFile:
     def __init__(self, filename):
@@ -20,7 +19,6 @@ class configFile:
         # Get root node
         root = et.parse(self.f).getroot()
         self.result['name'] = self.__parse_name__(root.find('name')) # Name
-        self.result['datetime'] = self.__parse_datetime__(root.find('datetime')) # Format of datetime
         self.result['messages'] = self.__parse_messages__(root.find('messages')) # Messages
         return self.result
 
@@ -31,20 +29,13 @@ class configFile:
             self.error = True
             return None
 
-    def __parse_datetime__(self, datetime_element):
-        if datetime_element != None:
-            return datetime_element.text
-        else:
-            # Use default
-            return DEFAULT_DATETIME
-
     def __parse_messages__(self, messages_element):
         if messages_element == None:
             self.error = True
             return None
         result = []
         for msg in messages_element: # Parse every message
-            result.append(message(msg, {'name': self.result['name'], 'datetime': self.result['datetime']}))
+            result.append(message(msg, {'name': self.result['name']}))
         return result
 
     def findMessageByCondition(self, conditions = {}): # Find a message with a specific group of conditions
@@ -86,12 +77,29 @@ class condition:
                     return True
             return False
         elif self.type == 'time':
-            if self.time == None:
-                return False
-            if datetime.now().replace(microsecond = 0) == self.time: # We don't need ms when comparing time
-                return True
-            else:
-                return False
+            nowtime = datetime.now()
+            if self.time['year'] != None:
+                if not nowtime.year in self.time['year']:
+                    return False
+            if self.time['month'] != None:
+                if not nowtime.month in self.time['month']:
+                    return False
+            if self.time['day'] != None:
+                if not nowtime.day in self.time['day']:
+                    return False
+            if self.time['hour'] != None:
+                if not nowtime.hour in self.time['hour']:
+                    return False
+            if self.time['minute'] != None:
+                if not nowtime.minute in self.time['minute']:
+                    return False
+            if self.time['second'] != None:
+                if not nowtime.second in self.time['second']:
+                    return False
+            if self.time['weekday'] != None:
+                if not nowtime.weekday() in self.time['weekday']:
+                    return False
+            return True
 
     def __cond_default__(self, condition_element):
         self.type = None
@@ -104,10 +112,43 @@ class condition:
 
     def __cond_time__(self, condition_element):
         self.type = 'time'
-        try:
-            self.time = datetime.strptime(condition_element.get('time'), self.global_attr['datetime'])
-        except ValueError:
-            self.time = None
+        self.time = {}
+        self.time['year'] = self.__parse_comma__(condition_element.get('year'))
+        self.time['month'] = self.__parse_comma__(condition_element.get('month'))
+        self.time['day'] = self.__parse_comma__(condition_element.get('day'))
+        self.time['hour'] = self.__parse_comma__(condition_element.get('hour'))
+        self.time['minute'] = self.__parse_comma__(condition_element.get('minute'))
+        self.time['second'] = self.__parse_comma__(condition_element.get('second'))
+        self.time['weekday'] = self.__parse_comma__(
+            condition_element.get('weekday').lower()\
+            .replace('sun','0').replace('mon','1').replace('tue','2')\
+            .replace('wed','3').replace('thu','4').replace('fri','5')\
+            .replace('sat','6') if condition_element.get('weekday') != None else None
+        )
+
+    def __parse_comma__(self, desc):
+        if desc is None:
+            return None
+        result = []
+        items = desc.split(',')
+        for item in items:
+            item = item.strip()
+            if '-' in item: # from-to
+                try:
+                    num_from, num_to = item.split('-')
+                    for i in range(int(num_from.strip()), int(num_to.strip()) + 1):
+                        if not i in result:
+                            result.append(i)
+                except ValueError:
+                    continue
+            else: # one value
+                try:
+                    i = int(item)
+                    if not i in result:
+                        result.append(i)
+                except ValueError:
+                    continue
+        return result
 
 class message:
     def __init__(self, message_element, global_attributes):
