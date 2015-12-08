@@ -26,4 +26,5 @@ def main():
     app.MainLoop()
 
 if __name__ == '__main__':
+    os.chdir(os.path.dirname(__file__)) # Change current directory to file directory
     main()
