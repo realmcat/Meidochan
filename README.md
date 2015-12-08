@@ -4,12 +4,6 @@
 
 A simple AI project.
 
-## Updates
-* 20151130: Added *end* event.
-* 20151129: Added *startup* event and test data (Chinese).
-* 20151128: Created main module and taskicon module.
-* 20151127: Created repo.
-
 ## About
 This project is intended to be an AI that popups balloon on tray to notify something or say hello to you.
 
@@ -20,9 +14,7 @@ This program does the similar things as the plugin Yui in SAO Project but user c
 User is able to set their custom phrases in config file. Beta version would be Chinese but you can set yourself isn't it?
 
 About her name (her?), which one is OK...
-* Meido-chan (Sakurasou?)
-* Yui (Is this SAO?)
-* Fubuki (KanColle?)
-* Iona (...)
-
-(~~Iona is the best! prpr~~)
+* Meido-chan?
+* Yui?
+* Fubuki?
+* Iona?
